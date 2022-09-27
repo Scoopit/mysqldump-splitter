@@ -4,6 +4,14 @@ Split gigantic mysql dumps into smaller one in a human manageable directory stru
 
 Output files can be optionally be compressed (gzip).
 
+## Installation
+
+This tool is not yet published to crates.io.
+
+````bash
+cargo install --git https://github.com/Scoopit/mysqldump-splitter.git
+````
+
 ## Usage
 
 ````
@@ -64,14 +72,6 @@ to their name.
 - procedures or triggers are appended to the last table of a database
 - comments do not match files (eg. the create database file
   contains comments for the first table in the db)
-
-## Installation
-
-This tool is not yet published to crates.io.
-
-````bash
-cargo install --git https://github.com/Scoopit/mysqldump-splitter.git
-````
 
 ## License
 
