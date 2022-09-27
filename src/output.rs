@@ -62,7 +62,7 @@ impl Output {
             Box::new(File::create(path)?)
         };
 
-        let (tx, receiver) = bounded::<Vec<u8>>(1000);
+        let (sender, receiver) = bounded::<Vec<u8>>(1000);
         std::thread::spawn(move || {
             while let Ok(bytes) = receiver.recv() {
                 if let Err(e) = output.write_all(bytes.as_slice()) {
@@ -71,7 +71,7 @@ impl Output {
                 }
             }
         });
-        Ok(Self { sender: tx })
+        Ok(Self { sender })
     }
 
     pub fn write_bytes(&mut self, buf: &[u8]) -> color_eyre::Result<()> {
