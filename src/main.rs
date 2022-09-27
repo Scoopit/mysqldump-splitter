@@ -8,7 +8,7 @@ use clap::Parser;
 use color_eyre::eyre::{Context, Result};
 use output::{Output, OutputFile};
 
-/// Simple program to greet a person
+/// Split mysql dumps by database/tables
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
 struct Args {
